@@ -56,7 +56,7 @@ echo ""
 echo "Input your data folder path you want to process!"
 echo "For example: /lustre/project/wdeng7/jyang10/data"
 read data
-data=/lustre/project/wdeng7/jyang10/data
+#data=/lustre/project/wdeng7/jyang10/data
 echo ""
 
 
@@ -68,7 +68,7 @@ echo ""
 echo "Input transciptome folder absolute path here!"
 echo "For example: /lustre/project/wdeng7/deep/CellRangerData/refgenome4cellranger"
 read transciptome
-transcriptome=/lustre/project/wdeng7/deep/CellRangerData/refgenome4cellranger
+#transcriptome=/lustre/project/wdeng7/deep/CellRangerData/refgenome4cellranger
 echo ""
 
 
@@ -82,7 +82,7 @@ echo ""
 echo "Input your ID for cellranger here!"
 echo "For example: samplePF"
 read ID
-ID=samplePF
+#ID=samplePF
 echo ""
 
 
@@ -94,7 +94,7 @@ echo "Input fastqs folder absolute path here! "
 echo ""
 echo "For example: /lustre/project/wdeng7/scRNA_RAW/Wu-Min_Deng_12-13-2019_10X-pool/Deng_10XRNA-Seq/"
 read fastqs
-fastqs=/lustre/project/wdeng7/scRNA_RAW/Wu-Min_Deng_12-13-2019_10X-pool/Deng_10XRNA-Seq/
+#fastqs=/lustre/project/wdeng7/scRNA_RAW/Wu-Min_Deng_12-13-2019_10X-pool/Deng_10XRNA-Seq/
 echo ""
 
 
@@ -106,7 +106,7 @@ echo "Include Sample names you want to analyze! "
 echo ""
 echo "For example: PF_1,PF_2"
 read sample
-sample=PF_1,PF_2
+#sample=PF_1,PF_2
 echo ""
 
 
@@ -120,10 +120,10 @@ echo ""
 echo "For example: /lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf"
 echo "Input your maskfile1!"
 read maskfile1
-maskfile1=/lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf
+#maskfile1=/lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf
 echo "Input your maskfile2!"
 read maskfile2
-maskfile2=/lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf
+#maskfile2=/lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf
 echo ""
 
 
@@ -136,7 +136,7 @@ echo "Where do you want to store your loom file from velocyto?"
 echo ""
 echo "For example: /lustre/project/wdeng7/jyang10/result"
 read outputloom
-outputloom=/lustre/project/wdeng7/jyang10/result
+#outputloom=/lustre/project/wdeng7/jyang10/result
 echo ""
 
 

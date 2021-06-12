@@ -44,8 +44,7 @@ mail -s 'Your script has started!' ${1}
 
 
 
-
-
+module load cellranger/6.0.0
 cd ${data}
 if [[ -e ${data}/${ID}/_lock ]]; then
     echo "Cellranger has been interrupted deleting _lock file now!"

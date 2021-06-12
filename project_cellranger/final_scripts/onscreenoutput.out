@@ -1,0 +1,18 @@
+Null message body; hope that's ok
+Cellranger pre-run check completed! You are free to go!
+/var/spool/slurmd/job1648024/slurm_script: line 56: cellranger: command not found
+ 
+This is the end of Cellranger!
+ 
+ 
+Start of samtools
+ 
+/var/spool/slurmd/job1648024/slurm_script: line 80: samtools: command not found
+ 
+End of samtools
+ 
+Usage: velocyto run [OPTIONS] BAMFILE... GTFFILE
+Try 'velocyto run --help' for help.
+
+Error: Invalid value for 'BAMFILE...': File '/lustre/project/wdeng7/jyang10/data//lustre/project/wdeng7/deep/XFW/CtrlImR_newSequencing/G6/outs/possorted_genome_bam.bam' does not exist.
+Null message body; hope that's ok
