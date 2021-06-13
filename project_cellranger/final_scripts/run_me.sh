@@ -88,6 +88,8 @@ read ID
 echo ""
 echo "This is the name of the subfolder you have entered"
 echo ${ID}
+echo ""
+echo ""
 
 
 
@@ -110,15 +112,18 @@ echo "Input your transcriptomic sequence with certain regions masked (maskfile1)
 echo "Input your maskfile1!"
 echo "For example: /lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf"
 read maskfile1
-
-
 echo ""
 echo ""
+
+
 
 echo "Input your maskfile2!"
 echo "For example: /lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf"
 read maskfile2
 echo ""
+
+
+
 
 echo "These are the two mask files you have entered"
 echo ""
