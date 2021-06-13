@@ -21,7 +21,7 @@ then
     echo 'Sidenote: If you want to take a peek into the progress of your job do this: cat onscreenoutput.out'
     echo 'If your job exceeds time limit just rerun this script again by'
     echo 'bash run_me.sh'
-    sbatch main.sh ${email} ${data} ${transcriptome} ${ID} ${fastqs} ${sample} ${maskfile1} ${maskfile2} ${outputloom}
+    sbatch main.sh ${email} ${data} ${transcriptome} ${ID} ${sample_name} ${maskfile1} ${maskfile2} ${outputloom}
     exit
 fi
 
@@ -45,7 +45,6 @@ echo "Please input your tulane email address, you will get notification when the
 echo ""
 echo "For example: jyang10@tulane.edu"
 read email
-email=jyang10@tulane.edu
 echo ""
 
 
@@ -54,24 +53,24 @@ echo ""
 
 #Get user's data folder path
 echo "Input your data folder path you want to process!"
+echo "This directory is also where fastq files are:"
 echo "For example: /lustre/project/wdeng7/jyang10/data"
 read data
-#data=/lustre/project/wdeng7/jyang10/data
 echo ""
-
+echo "Your fastq files are in this below folder"
+echo ${data}
 
 
 
 
 
 #Get user's transcriptome folder path
-echo "Input transciptome folder absolute path here!"
+echo "Input transcriptome folder absolute path here!"
 echo "For example: /lustre/project/wdeng7/deep/CellRangerData/refgenome4cellranger"
 read transciptome
-#transcriptome=/lustre/project/wdeng7/deep/CellRangerData/refgenome4cellranger
 echo ""
-
-
+echo "A subfolder with the name you specified here will be created in the below folder"
+echo ${transcriptome}
 
 
 
@@ -82,21 +81,9 @@ echo ""
 echo "Input your ID for cellranger here!"
 echo "For example: samplePF"
 read ID
-#ID=samplePF
 echo ""
-
-
-
-
-
-#Get user's fastqs folder path
-echo "Input fastqs folder absolute path here! "
-echo ""
-echo "For example: /lustre/project/wdeng7/scRNA_RAW/Wu-Min_Deng_12-13-2019_10X-pool/Deng_10XRNA-Seq/"
-read fastqs
-#fastqs=/lustre/project/wdeng7/scRNA_RAW/Wu-Min_Deng_12-13-2019_10X-pool/Deng_10XRNA-Seq/
-echo ""
-
+echo "This is the name of the subfolder you choose"
+echo ${ID}
 
 
 
@@ -105,26 +92,32 @@ echo ""
 echo "Include Sample names you want to analyze! "
 echo ""
 echo "For example: PF_1,PF_2"
-read sample
-#sample=PF_1,PF_2
+read sample_name
 echo ""
-
+echo "These are the names of the sample you want to analyze"
+echo ${sample_name}
 
 
 
 
 
 #Get user's maskfile1 and maskfile2
-echo "Input your maskfile1 and maskfile2"
+echo "Input your transcriptomic sequence with certain regions masked (maskfile1) and nmasked transcriptome in gtf file format (maskfile2)"
 echo ""
 echo "For example: /lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf"
 echo "Input your maskfile1!"
 read maskfile1
-#maskfile1=/lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf
+
+echo "For example: /lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf"
 echo "Input your maskfile2!"
 read maskfile2
-#maskfile2=/lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf
 echo ""
+
+echo "These are the two mask files you have entered"
+echo "Maskfile1 is:"
+echo ${maskfile1}
+echo "Maskfile2 is"
+echo ${maskfile2}
 
 
 
@@ -136,9 +129,9 @@ echo "Where do you want to store your loom file from velocyto?"
 echo ""
 echo "For example: /lustre/project/wdeng7/jyang10/result"
 read outputloom
-#outputloom=/lustre/project/wdeng7/jyang10/result
 echo ""
-
+echo "This is the location where you want to store your output of loom file"
+echo ${outputloom}
 
 
 
@@ -165,7 +158,7 @@ then
     echo 'Sidenote: If you want to take a peek into the progress of your job do this: cat onscreenoutput.out'
     echo 'If your job exceeds time limit just rerun this script again by'
     echo 'bash run_me.sh'
-    sbatch main.sh ${email} ${data} ${transcriptome} ${ID} ${fastqs} ${sample} ${maskfile1} ${maskfile2} ${outputloom}
+    sbatch main.sh ${email} ${data} ${transcriptome} ${ID} ${sample_name} ${maskfile1} ${maskfile2} ${outputloom}
 else
     #User wants to save the parameters for future use
     #These lines below are writing user's set of parameters into save.sh
@@ -174,8 +167,7 @@ else
     echo data=${data} >> save.sh
     echo transcriptome=${transcriptome} >> save.sh
     echo ID=${ID} >> save.sh
-    echo fastqs=${fastqs} >> save.sh
-    echo sample=${sample} >> save.sh
+    echo sample_name=${sample_name} >> save.sh
     echo maskfile1=${maskfile1} >> save.sh
     echo maskfile2=${maskfile2} >> save.sh
     echo outputloom=${outputloom} >> save.sh

@@ -1,10 +1,10 @@
 #!/bin/bash
 email=jyang10@tulane.edu
 data=/lustre/project/wdeng7/jyang10/data
-transcriptome=/lustre/project/wdeng7/deep/CellRangerData/refgenome4cellranger
+transcriptome=
 ID=sampleG6F
-fastqs=/lustre/project/wdeng7/jyang10/data
+fastqs=/lustre/project/wdeng7/deep/XFW/CtrlImR_newSequencing/G6
 sample=G6F_1,G6F_2,G6F_3,G6F_4
-maskfile1=lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf
-maskfile2=/lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf
+maskfile1=/lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf
+maskfile2=m/lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf
 outputloom=/lustre/project/wdeng7/jyang10/result

@@ -22,11 +22,13 @@ email=${1}
 data=${2}
 transcriptome=${3}
 ID=${4}
-fastqs=${5}
-sample=${6}
-maskfile1=${7}
-maskfile2=${8}
-outputloom=${9}
+sample_name=${5}
+maskfile1=${6}
+maskfile2=${7}
+outputloom=${8}
+
+
+
 #Notify user your job has started
 mail -s 'Your script has started!' ${1}
 
@@ -46,32 +48,38 @@ mail -s 'Your script has started!' ${1}
 
 module load cellranger/6.0.0
 module load samtools/1.10
+#Activate conda environment Instructions are on the website below
+#https://wiki.hpc.tulane.edu/trac/wiki/cypress/AnacondaInstallPackage
+export CONDA_ENVS_PATH=/lustre/project/wdeng7/jyang10/anaconda3:$CONDA_ENV$
+export PATH=/lustre/project/wdeng7/jyang10/anaconda3/bin:$PATH
+export LD_LIBRARY_PATH=/lustre/project/wdeng7/jyang10/samtools/htslib-1.12$
+#unset PYTHONPATH
+#source activate my_root
+
+
+
 cd ${data}
 if [[ -e ${data}/${ID}/_lock ]]; then
     echo "Cellranger has been interrupted deleting _lock file now!"
     rm ${data}/${ID}/_lock
     echo "_lock file has been deleted"
 fi
+
 echo "Cellranger pre-run check completed! You are free to go!"
-cellranger count --transcriptome=${transcriptome}  --id=${ID}  --fastqs=${fastqs} --sample=${sample}
+cellranger count --transcriptome=${transcriptome}  --id=${ID}  --fastqs=${data} --sample=${sample_name}
+
 echo " "
 echo "This is the end of Cellranger!"
 echo " "
-#Activate conda environment Instructions are on the website below
-#https://wiki.hpc.tulane.edu/trac/wiki/cypress/AnacondaInstallPackage
-export CONDA_ENVS_PATH=/lustre/project/wdeng7/jyang10/anaconda3:$CONDA_ENVS_PATH
-export PATH=/lustre/project/wdeng7/jyang10/cellranger/cellranger-5.0.1/bin:$PATH
-export PATH=/lustre/project/wdeng7/jyang10/samtools/samtools-1.12/bin:$PATH
-export PATH=/lustre/project/wdeng7/jyang10/anaconda3/bin:$PATH
-export LD_LIBRARY_PATH=/lustre/project/wdeng7/jyang10/samtools/htslib-1.12:$LD_LIBRARY_PATH
-#unset PYTHONPATH
-#source activate my_root
+
 
 #Extract the absolute path of barcode file we will use in velocyto
 barcode=${data}/${ID}/outs/filtered_feature_bc_matrix/barcodes.tsv.gz
 
+
 #Extract the absolute path of bam file we will use in velocyto
 bamfile=${data}/${ID}/outs/possorted_genome_bam.bam
+
 
 echo " "
 echo "Start of samtools"
@@ -81,6 +89,9 @@ samtools sort -l 7 -m 2000M -t CB -O BAM -@ 16 -o ${data}/${ID}/outs/cellsorted_
 echo " "
 echo "End of samtools"
 echo " "
+
+
+
 #Start processing using velocyto
 velocyto run -b ${barcode} -o ${outputloom} -m ${maskfile1} ${bamfile} ${maskfile2}
 
