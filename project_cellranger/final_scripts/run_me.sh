@@ -46,7 +46,10 @@ echo ""
 echo "For example: jyang10@tulane.edu"
 read email
 echo ""
-
+echo "This is the email address you have entered"
+echo ${email}
+echo ""
+echo ""
 
 
 
@@ -59,7 +62,8 @@ read data
 echo ""
 echo "Your fastq files are in this below folder"
 echo ${data}
-
+echo ""
+echo ""
 
 
 
@@ -71,7 +75,8 @@ read transcriptome
 echo ""
 echo "A subfolder with the name you specified here will be created in the below folder"
 echo ${transcriptome}
-
+echo ""
+echo ""
 
 
 
@@ -96,7 +101,8 @@ read sample_name
 echo ""
 echo "These are the names of the sample you want to analyze"
 echo ${sample_name}
-
+echo ""
+echo ""
 
 
 
@@ -108,17 +114,26 @@ echo "For example: /lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf"
 echo "Input your maskfile1!"
 read maskfile1
 
+
+echo ""
+echo ""
+
+
 echo "For example: /lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf"
 echo "Input your maskfile2!"
 read maskfile2
 echo ""
 
 echo "These are the two mask files you have entered"
+echo ""
 echo "Maskfile1 is:"
 echo ${maskfile1}
+echo ""
+echo ""
 echo "Maskfile2 is"
 echo ${maskfile2}
-
+echo ""
+echo ""
 
 
 
@@ -130,9 +145,11 @@ echo ""
 echo "For example: /lustre/project/wdeng7/jyang10/result"
 read outputloom
 echo ""
+echo ""
 echo "This is the location where you want to store your output of loom file"
 echo ${outputloom}
-
+echo ""
+echo ""
 
 
 
