@@ -73,7 +73,7 @@ echo "Input transcriptome folder absolute path here!"
 echo "For example: /lustre/project/wdeng7/deep/CellRangerData/refgenome4cellranger"
 read transcriptome
 echo ""
-echo "A subfolder with the name you specified here will be created in the below folder"
+echo "This is the transcriptome folder you have entered:"
 echo ${transcriptome}
 echo ""
 echo ""
@@ -81,13 +81,12 @@ echo ""
 
 
 #Get user's specification of what the name of subfolder will be
-echo "A subfolder with the name you specified here will be created in 'data' folder"
-echo ""
 echo "Input your ID for cellranger here!"
+echo "A subfolder with the name you specified here will be created in 'data' folder"
 echo "For example: samplePF"
 read ID
 echo ""
-echo "This is the name of the subfolder you choose"
+echo "This is the name of the subfolder you have entered"
 echo ${ID}
 
 
@@ -95,7 +94,6 @@ echo ${ID}
 
 #Get user's specification of what samples he wants to run
 echo "Include Sample names you want to analyze! "
-echo ""
 echo "For example: PF_1,PF_2"
 read sample_name
 echo ""
@@ -109,18 +107,16 @@ echo ""
 
 #Get user's maskfile1 and maskfile2
 echo "Input your transcriptomic sequence with certain regions masked (maskfile1) and nmasked transcriptome in gtf file format (maskfile2)"
-echo ""
-echo "For example: /lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf"
 echo "Input your maskfile1!"
+echo "For example: /lustre/project/wdeng7/deep/dm6/dm6_rmsk.gtf"
 read maskfile1
 
 
 echo ""
 echo ""
 
-
-echo "For example: /lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf"
 echo "Input your maskfile2!"
+echo "For example: /lustre/project/wdeng7/deep/dm6/genes/Drosophila_melanogaster.BDGP6.28.100.chr_filtered.GAL4.EGFP.gtf"
 read maskfile2
 echo ""
 
@@ -141,7 +137,6 @@ echo ""
 
 #Get user's specification on which folder he wants to store the output
 echo "Where do you want to store your loom file from velocyto?"
-echo ""
 echo "For example: /lustre/project/wdeng7/jyang10/result"
 read outputloom
 echo ""
