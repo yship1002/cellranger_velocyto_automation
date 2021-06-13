@@ -67,7 +67,7 @@ echo ${data}
 #Get user's transcriptome folder path
 echo "Input transcriptome folder absolute path here!"
 echo "For example: /lustre/project/wdeng7/deep/CellRangerData/refgenome4cellranger"
-read transciptome
+read transcriptome
 echo ""
 echo "A subfolder with the name you specified here will be created in the below folder"
 echo ${transcriptome}
