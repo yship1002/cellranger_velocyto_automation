@@ -50,9 +50,9 @@ module load cellranger/6.0.0
 module load samtools/1.10
 #Activate conda environment Instructions are on the website below
 #https://wiki.hpc.tulane.edu/trac/wiki/cypress/AnacondaInstallPackage
-export CONDA_ENVS_PATH=/lustre/project/wdeng7/jyang10/anaconda3:$CONDA_ENV$
+export CONDA_ENVS_PATH=/lustre/project/wdeng7/jyang10/anaconda3:$CONDA_ENV
 export PATH=/lustre/project/wdeng7/jyang10/anaconda3/bin:$PATH
-export LD_LIBRARY_PATH=/lustre/project/wdeng7/jyang10/samtools/htslib-1.12$
+export LD_LIBRARY_PATH=/lustre/project/wdeng7/jyang10/samtools/htslib-1.12$LD_LIBRARY_PATH
 #unset PYTHONPATH
 #source activate my_root
 
