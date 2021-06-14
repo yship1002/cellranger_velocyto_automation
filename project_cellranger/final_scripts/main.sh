@@ -9,8 +9,8 @@
 
 #SBATCH --qos=normal            # Quality of Service
 #SBATCH --job-name=cellrangerVelocyto          # Job Name
-#SBATCH --nodes=10              # Number of Nodes
-#SBATCH --ntasks-per-node=2     # Number of tasks (MPI processes)
+#SBATCH --nodes=5              # Number of Nodes
+#SBATCH --ntasks-per-node=5     # Number of tasks (MPI processes)
 #SBATCH --cpus-per-task=8    # Number of threads per task (OMP threads)
 #SBATCH --mem=100000            # Request memory per node
 #SBATCH --mail-type=ALL
