@@ -9,7 +9,7 @@
 
 #SBATCH --qos=normal            # Quality of Service
 #SBATCH --job-name=cellrangerVelocyto          # Job Name
-#SBATCH --nodes=5              # Number of Nodes
+#SBATCH --nodes=10              # Number of Nodes
 #SBATCH --ntasks-per-node=2     # Number of tasks (MPI processes)
 #SBATCH --cpus-per-task=8    # Number of threads per task (OMP threads)
 #SBATCH --mem=100000            # Request memory per node
@@ -52,7 +52,7 @@ module load samtools/1.10
 #https://wiki.hpc.tulane.edu/trac/wiki/cypress/AnacondaInstallPackage
 export CONDA_ENVS_PATH=/lustre/project/wdeng7/jyang10/anaconda3:$CONDA_ENV
 export PATH=/lustre/project/wdeng7/jyang10/anaconda3/bin:$PATH
-export LD_LIBRARY_PATH=/lustre/project/wdeng7/jyang10/samtools/htslib-1.12$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/lustre/project/wdeng7/jyang10/samtools/htslib-1.12:$LD_LIBRARY_PATH
 #unset PYTHONPATH
 #source activate my_root
 
